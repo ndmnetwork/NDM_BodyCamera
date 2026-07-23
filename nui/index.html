@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NDM Body Camera</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!--
+        Full-screen wrapper — hidden until camera is active.
+        Contains both the fixed corner-frame decoration and the
+        draggable HUD info widget.
+    -->
+    <div id="bodycam-overlay" class="hidden">
+
+        <!-- Subtle vignette around screen edges -->
+        <div class="vignette"></div>
+
+        <!-- Fixed corner brackets (visual camera-frame effect) -->
+        <div class="corner top-left"></div>
+        <div class="corner top-right"></div>
+        <div class="corner bottom-left"></div>
+        <div class="corner bottom-right"></div>
+
+        <!--
+            Draggable HUD widget.
+            The user can click-and-drag it anywhere on screen.
+            Position is saved to localStorage so it survives
+            camera toggling within the same session.
+        -->
+        <div id="cam-widget">
+
+            <!-- Drag handle: the top bar of the widget -->
+            <div id="widget-header">
+                <div class="rec-indicator">
+                    <span class="rec-dot"></span>
+                    <span class="rec-label" id="label-rec">REC</span>
+                </div>
+                <div id="datetime"></div>
+            </div>
+
+            <!-- Officer information rows -->
+            <div id="widget-body">
+                <div class="info-row">
+                    <span class="info-label" id="label-officer">OFFICER</span>
+                    <span class="info-value" id="officer-name">—</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label" id="label-badge">BADGE</span>
+                    <span class="info-value" id="officer-callsign">—</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label" id="label-dept">DEPT</span>
+                    <span class="info-value" id="officer-department">—</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label" id="label-serial">SN</span>
+                    <span class="info-value" id="cam-serial">—</span>
+                </div>
+            </div>
+
+        </div><!-- /#cam-widget -->
+
+    </div><!-- /#bodycam-overlay -->
+
+    <script src="script.js"></script>
+</body>
+</html>
